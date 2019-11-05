@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Home -->
+
+<div class="home" style="background:none;height:auto;">
+		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="../media/{{ about.thumbnail }}" data-speed="0.8"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="home_content">
+						<div class="home_content_inner">
+							<div class="home_title">{{ about.title }}</div>
+							<div class="home_breadcrumbs">
+								<ul>
+									<li><a href="/">Home</a></li>
+									<li>{{ about.title }}</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Header -->
+	{% include 'header.html' %}
+	</div>
+
+	<!-- Intro -->
+
+<!--gallery-->
+    <section class="about">
+        <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+    <p><i class="fa fa-hand-o-right" aria-hidden="true"></i>{% autoescape on  %} {{ about.description }} {% endautoescape %}</P>
+            </div></div>
+        </div>
+    </section>
+
+{% endblock content %}

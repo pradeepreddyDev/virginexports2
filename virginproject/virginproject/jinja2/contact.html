@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<!-- Home -->
+       <div class="home" style="background:none;height:auto;">
+		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="../media/{{ contact.thumbnail }}" data-speed="0.8"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="home_content">
+						<div class="home_content_inner">
+							<div class="home_title">{{ contact.title }}</div>
+							<div class="home_breadcrumbs">
+								<ul>
+									<li><a href="financial.html">Home</a></li>
+									<li>{{ contact.title }}</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	 
+
+		<!-- Header -->
+
+	{% include 'header.html' %}
+	</div>
+
+	<!-- Contact -->
+
+	<div class="contact">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-5">
+					<div class="info">
+						<div class="section_title_container">
+							<div class="section_subtitle">take a look at our</div>
+							<div class="section_title">Contact info</div>
+						</div>
+						<div class="info_title">{% autoescape on  %} {{ contact.description }} {% endautoescape %}</div>
+
+
+					</div>
+
+				</div>
+				<div class="col-lg-7 contact_form_col">
+					<div class="section_title_container">
+						<div class="section_subtitle">take a look at our</div>
+						<div class="section_title">Get in touch</div>
+					</div>
+					<div class="contact_form_container">
+
+
+						<form action="/send" class="contact_form" method="post">
+                             <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+							<div class="row">
+								<div class="col-md-6">
+									<input type="text" class="input_item"  name="name" placeholder="Your Name" required="required">
+								</div>
+								<div class="col-md-6">
+									<input type="text" class="input_item"  name="phone" placeholder="Your Phone">
+								</div>
+								<div class="col-md-12">
+									<input type="email" class="input_item"  name="email" placeholder="Your E-mail" required="required">
+								</div>
+
+
+								<div class="col-md-12">
+									<textarea id="contact_message" class="input_item contact_message" name="message" placeholder=" Your Message" required="required" data-error="Please, write us a message."></textarea>
+								</div>
+								<div class="col-md-12">
+									<button id="contact_btn" type="submit" name="submit" class="contact_button trans_200" value="Submit">submit</button>
+								</div>
+							</div>
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Google Map -->
+
+	<div class="map">
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d951.566433426979!2d78.3869981428271!3d17.44699087399261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9145d88d1b45%3A0xb5696b42702bd2e9!2sVirgin+Stone+Exports!5e0!3m2!1sen!2sin!4v1549976510664" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+		<div class="map_contact">
+			<div class="map_contact_inner d-flex flex-column align-items-start justify-content-center">
+
+				<div class="map_contact_title"><img src="{{ static('images/barcode.jpg') }}"></div>
+
+			</div>
+		</div>
+	</div>
+
+
+</div>
+<script src="{{ static('js/jquery-3.2.1.min.js') }}"></script>
+<script src="{{ static('styles/bootstrap4/popper.js') }}"></script>
+<script src="{{ static('styles/bootstrap4/bootstrap.min.js') }}"></script>
+<script src="{{ static('plugins/easing/easing.js') }}"></script>
+<script src="{{ static('plugins/parallax-js-master/parallax.min.js') }}"></script>
+
+<script src="{{ static('js/contact_custom.js') }}"></script>
+{% endblock content %}

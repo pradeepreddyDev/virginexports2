@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<!-- Home -->
+
+	<div class="home" style="background:none;height:auto;">
+		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="../media/{{ cms.thumbnail }}" data-speed="0.8"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="home_content">
+						<div class="home_content_inner">
+							<div class="home_title">{{ cms.title }}</div>
+							<div class="home_breadcrumbs">
+								<ul>
+									<li><a href="/">Home</a></li>
+								<li>Product</li>
+									<li>{{ cms.title }}</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Header -->
+
+		{% include 'header.html' %}
+        </div>
+
+    <section class="gallery">
+        <div class="container">
+            <div class="row">
+
+
+<div class="nak-gallery nlg1" id="gallery" style="position: relative; height: 936px;">
+  <a href="images/granite/gn1.jpg" class="revGallery-anchor" style="position: absolute; left: 0px; top: 0px;" title="Black Galaxy">
+    <img class="img-responsive" src="images/granite/gn1.jpg" >
+    <div style="overflow:hidden">
+      <div class="nak-gallery-poster inkwell" style="background-image:url('images/granite/gn1.jpg');background-size:cover;background-repeat:no-repeat;background-position:center center;display: block;width: 100%;height: 0;"></div>
+
+    </div>
+    <h4>Black Galaxy</h4>
+    <div class="gal-overlay">
+      <div class="photo"></div>
+    </div>
+  </a>
+
+       </div>
+            </div>
+        </div>
+            </div>
+    </section>
+{% endblock content %}

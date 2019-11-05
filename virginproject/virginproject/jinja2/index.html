@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Home -->
+
+	<div class="home">
+		<div class="home_slider_container">
+
+			<!-- Home Slider -->
+
+			<div class="owl-carousel owl-theme home_slider">
+
+				<!-- Slider Item -->
+				{% for banners in banners %}
+				<div class="owl-item">
+					<div class="slider_background" style="background-image:url('../media/{{ banners.image }}')"></div>
+				</div>
+				{% endfor %}
+			</div>
+
+			<div class="home_slider_nav home_slider_prev d-flex flex-column align-items-center justify-content-center"><img src="{{ static ('images/arrow_l.png') }}" alt=""></div>
+			<div class="home_slider_nav home_slider_next d-flex flex-column align-items-center justify-content-center"><img src="{{ static ('images/arrow_r.png') }}" alt=""></div>
+
+		</div>
+
+		<!-- Header -->
+
+		 {% include 'header.html' %}
+	</div>
+
+	<!-- Intro -->
+
+	<div class="intro">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="intro_image text-lg-right text-center"><img src="../media/{{ products1.image }}" alt="">
+					<div class="intro-overlay">
+						<a href="productcategory/{{ products1.id }}"><h4>{{ products1.title }}</h4></a>
+					</div></div>
+				</div>
+
+				<div class="col-lg-6">
+					<div class="intro_image text-lg-right text-center"><img src="../media/{{ products2.image }}" alt="">
+					<div class="intro-overlay">
+						<a href="productcategory/{{ products2.id }}"><h4>{{ products2.title }}</h4></a>
+					</div></div>
+				</div>
+			</div>
+			<div class="row p-20">
+				<div class="col-lg-12">
+					<div class="intro_image text-lg-right text-center"><img src="../media/{{ products3.image }}" alt="">
+					<div class="intro-overlay">
+						<a href="productcategory/{{ products3.id }}"><h4>{{ products3.title }}</h4></a>
+					</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+
+				<div class="col-lg-4">
+					<div class="intro_image text-lg-right text-center"><img src="{{ static ('images/img5.jpg') }}" alt=""  style="width:450px;">
+					<div class="intro-overlay">
+						<a href="projects/"><h4>Projects</h4></a>
+					</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="intro_image text-lg-right text-center"><img src="{{ static ('images/img6.jpg') }}" alt=""  style="width:450px;">
+					<div class="intro-overlay">
+						<a href="blog/"><h4>Blog</h4></a>
+					</div>
+					</div>
+				</div>
+
+				<div class="col-lg-4">
+					<div class="intro_image text-lg-right text-center"><img src="{{ static ('images/img4.jpg') }}" alt="" style="width:450px;">
+					<div class="intro-overlay">
+						<a href="contact/"><h4>Get In Touch</h4></a>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% if request.session.homeform != 'done' %}
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <!--         <h4 class="modal-title">Modal Header</h4> -->
+      </div>
+
+      <form action="/sendhome" class="modal-body text-center" method="post">
+		  <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+        <h1>Enter Your Details</h1>
+        <div class="modal-body text-left">
+            <div class="form-group">
+            <label for="name">Enter your name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+          </div>
+
+
+          <div class="form-group">
+            <label for="phone">Phone number</label>
+            <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone">
+          </div>
+
+          <div class="form-group">
+            <label for="email1">Email address</label>
+            <input type="email" class="form-control" id="email1" aria-describedby="emailHelp" name="email" placeholder="Enter email">
+
+          </div>
+
+          <div class="form-group">
+            <label for="name">Message</label>
+            <input type="text" class="form-control" id="message" name="message" placeholder="message">
+          </div>
+
+        </div>
+        <button class="pre-order-btn" name="submit" type="submit">Submit</button>
+
+
+
+      <div class="modal-footer">
+        <!--         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+      </div>
+		  </form>
+    </div>
+
+  </div>
+</div>
+
+{% endif %}
+{% endblock content %}

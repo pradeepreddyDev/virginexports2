@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+	<!-- Home -->
+
+	<div class="home" style="background:none;height:auto;">
+		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="../media/{{ cms.thumbnail }}" data-speed="0.8"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="home_content">
+						<div class="home_content_inner">
+							<div class="home_title">{{ cms.title }}</div>
+							<div class="home_breadcrumbs">
+								<ul>
+									<li><a href="/">Home</a></li>
+									<li>{{ cms.title }}</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- Header -->
+	{% include 'header.html' %}
+	</div>
+	<section class="blog-section">
+	    <div class="container">
+	        <div class="row">
+	            <div class="col-md-9">
+                    {% for item in blog %}
+	                <div class="row pd-20">
+	                    <div class="col-md-4">
+	                        <img src="../media/{{ item.image }}">
+	                    </div>
+	                    <div class="col-md-8">
+	                        <h3><a href="/blogdetail/{{ item.id }}">{{ item.blog_title }}</a></h3>
+	                        <p>{% autoescape on  %} {{ item.description[:150] }} {% endautoescape %}</p>
+	                        <a href="/blogdetail/{{ item.id }}" class="more">Read More...</a>
+	                    </div>
+	                </div>
+                    {% endfor %}
+                </div>
+	          <!--  <div class="col-md-3">
+	                <div class="text-center links">
+	                    <h4>Important Links</h4>
+	                    <ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="about.html">About</a></li>
+							<li><a href="projects.html">Projects</a></li>
+							<li><a href="blog.html">Blog</a></li>
+						    <li><a href="contact.html">Contact</a></li>
+						    	<li><a href="granite.html">Granite</a></li>
+						    		<li><a href="quartz.html">Quartz</a></li>
+						    			<li><a href="kitchen-countertops.html">Kitchen Countertop</a></li>
+						    			<li><a href="vanity-countertops.html">Vanity Tops</a></li>
+						    			<li><a href="accessories.html">Accessories</a></li>
+						</ul>
+	                </div>
+	            </div> -->
+	        </div>
+	    </div>
+	</section>
+
+
+
+
+{% endblock content %}

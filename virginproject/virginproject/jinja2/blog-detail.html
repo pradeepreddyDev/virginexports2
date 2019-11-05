@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<!-- Home -->
+
+	<div class="home" style="background:none;height:auto;">
+		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="../media/{{ cms.thumbnail }}" data-speed="0.8"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="home_content">
+						<div class="home_content_inner">
+							<div class="home_title">{{ cms.title }}</div>
+							<div class="home_breadcrumbs">
+								<ul>
+									<li><a href="/">Home</a></li>
+									<li>{{ cms.title }}</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Header -->
+
+	{% include 'header.html' %}
+	</div>
+	<section class="blog-detail-section">
+	    <div class="container">
+	        <div class="row">
+	            <div class="col-md-9">
+	                <div class="row">
+	                    <h3 class="pd-b-20"><a href="#">{{ blog.blog_title }}</a></h3>
+	                        <img src="../media/{{ blog.image }}">
+	                   
+	                  
+	                       
+	                        <p>{% autoescape on  %} {{ blog.description }} {% endautoescape %}</p>
+
+
+	                    </div>
+	               
+	               
+	            </div>
+	         <!--   <div class="col-md-3">
+	                <div class="text-center links">
+	                    <h4>Important Links</h4>
+	                    <ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="about.html">About</a></li>
+							<li><a href="projects.html">Projects</a></li>
+							<li><a href="blog.html">Blog</a></li>
+						    <li><a href="contact.html">Contact</a></li>
+						    	<li><a href="granite.html">Granite</a></li>
+						    		<li><a href="quartz.html">Quartz</a></li>
+						    			<li><a href="kitchen-countertops.html">Kitchen Countertop</a></li>
+						    			<li><a href="vanity-countertops.html">Vanity Tops</a></li>
+						    			<li><a href="accessories.html">Accessories</a></li>
+						</ul>
+	                </div>
+	            </div> -->
+	        </div>
+	    </div>
+	</section>
+	
+	
+
+{% endblock content %}
